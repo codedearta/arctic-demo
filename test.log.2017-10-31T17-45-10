@@ -1,0 +1,14 @@
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] MongoDB starting : pid=34646 port=27017 dbpath=--fork 64-bit host=sre-mac.local
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] db version v3.6.0-rc1
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] git version: 979ee612682b77d9cabaafae10787fbb578cd32a
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 0.9.8zh 14 Jan 2016
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] allocator: system
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] modules: none
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] build environment:
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten]     distarch: x86_64
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-10-31T17:43:32.306+0000 I CONTROL  [initandlisten] options: { net: { compression: { compressors: "zlib" } }, storage: { dbPath: "--fork" }, systemLog: { destination: "file", path: "./test.log" } }
+2017-10-31T17:43:32.306+0000 I STORAGE  [initandlisten] exception in initAndListen: NonExistentPath: Data directory --fork not found., terminating
+2017-10-31T17:43:32.306+0000 I NETWORK  [initandlisten] shutdown: going to close listening sockets...
+2017-10-31T17:43:32.307+0000 I CONTROL  [initandlisten] now exiting
+2017-10-31T17:43:32.307+0000 I CONTROL  [initandlisten] shutting down with code:100

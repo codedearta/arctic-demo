@@ -1,0 +1,7 @@
+MongoDB shell version v3.6.0-rc1
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.6.0-rc1
+collections: system.indexes,ticks,ticks.ARCTIC,ticks.metadata,ticks.symbols
+size: 3407664
+storageSize: 4202496
+avgObjSize: 262128
