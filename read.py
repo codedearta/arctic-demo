@@ -45,7 +45,7 @@ library = store[libraryName]
 
 start = time.time()
 frames = library.read(symbol)
-endTime = time.time()
+end = time.time()
 
 print("elapsed time to read all data of symbol '" + symbol + "': " + str(end - start))
 
