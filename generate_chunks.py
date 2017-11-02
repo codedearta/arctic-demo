@@ -34,7 +34,7 @@ def parseOptions():
         elif opt in ("-b", "--beginDate"):
             beginDate = beginDate = datetime.strptime(arg, dateTimeFormat)
         elif opt in ("-n", "--numberOfDays"):
-            numberOfDays = arg
+            numberOfDays = int(arg)
         elif opt in ("-h", "--host"):
             host = arg
         elif opt in ("-c", "--chunkSize"):
