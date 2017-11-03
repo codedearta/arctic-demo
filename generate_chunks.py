@@ -63,19 +63,46 @@ printUsedOptions()
 
 def generateDayDataFrame(tradingDateTime):
 
-    def generateTradingSeconds(date):
-        def addSecondsToDate(seconds):
-            return date + dt.timedelta(0,seconds)
-        return map(addSecondsToDate, range(25200))
+    # def generateTradingSeconds(date):
+    #     def addSecondsToDate(seconds):
+    #         return date + dt.timedelta(0,seconds)
+    #     return map(addSecondsToDate, range(25200))
 
-    def generateTicks():
-        def randomFunc(a):
-            return random.random() > 0.4
-        return map(randomFunc,range(25200))
 
-    dates = list(generateTradingSeconds(tradingDateTime))
-    ticks = list(generateTicks())
-    df = pd.DataFrame(data={'data': ticks, 'date': dates})
+
+    # def generateTicks():
+    #     def randomFunc(a):
+    #         return random.random() > 0.4
+    #     return map(randomFunc,range(25200))
+
+    # def generatePrices():
+    #     def generatePrice(seed):
+    #         return random.uniform(24, 100)
+    #     return map(generatePrice, range(25200))
+    #
+    # def generateAmounts():
+    #     def generateAmount(seed):
+    #         return random.randrange(10000)
+    #     return map(generateAmount, range(25200))
+
+    def genRecord(seconds):
+        date = tradingDateTime + dt.timedelta(0, seconds)
+        askBid = 'ASK' if random.random() < 0.5 else 'BID'
+        price = random.uniform(24, 100)
+        amount = random.randrange(10000)
+        return (date, askBid, price, amount)
+
+    records = map(genRecord, range(25200))
+    dates,askBids,prices,amounts = map(list, zip(*records))
+
+    # dates = list(generateTradingSeconds(tradingDateTime))
+        # tradingSeconds = range(25200)
+        # dates =   list(map(lambda seconds: tradingDateTime + dt.timedelta(0,seconds),  tradingSeconds))
+        # askBids = list(map(lambda _: 'ASK' if random.random() < 0.5 else 'BID',        tradingSeconds))
+        # prices =  list(map(lambda _: random.uniform(24, 100),                          tradingSeconds))
+        # amounts = list(map(lambda _: random.randrange(10000),                          tradingSeconds))
+    # df = pd.DataFrame(data={'data': ticks, 'date': dates})
+    df = pd.DataFrame(data={'askBid': askBids, 'amount': amounts, 'price': prices, 'date': dates})
     return df
 
 dates = pd.date_range(beginDate, periods=numberOfDays).tolist()
