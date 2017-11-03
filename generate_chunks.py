@@ -86,13 +86,13 @@ def generateDayDataFrame(tradingDateTime):
     #     return map(generateAmount, range(25200))
 
     def genRecord(seconds):
-        date = tradingDateTime + dt.timedelta(0, seconds)
+        date = tradingDateTime + dt.timedelta(milliseconds=seconds)
         askBid = 'ASK' if random.random() < 0.5 else 'BID'
         price = random.uniform(24, 100)
         amount = random.randrange(10000)
         return (date, askBid, price, amount)
 
-    records = map(genRecord, range(25200))
+    records = map(genRecord, range(0, 25200 * 1000, 333))
     dates,askBids,prices,amounts = map(list, zip(*records))
 
     # dates = list(generateTradingSeconds(tradingDateTime))
