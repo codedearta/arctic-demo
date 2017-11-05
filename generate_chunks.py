@@ -15,8 +15,8 @@ dateTimeFormat = '%Y-%m-%d %H:%M'
 def parseOptions():
     libraryName = 'ticks'
     symbol = 'mdb'
-    beginDate = datetime.strptime('2006-01-01 09:30', dateTimeFormat)
-    numberOfDays = 366
+    beginDate = datetime.strptime('2013-01-01 09:30', dateTimeFormat)
+    numberOfDays = 366*5
     host = 'localhost:27017'
     chunkSize = 'M'
 
@@ -88,7 +88,13 @@ library = store[libraryName]
 # singdf = pd.DataFrame(data={'data': [1], 'date': [beginDate] })
 # library.write(symbol, singdf)
 start = time.time()
+isFirst = True
 for frame in frames:
-    library.update(symbol, frame, upsert=True, chunk_size=chunkSize)
+    if isFirst:
+        library.write(symbol, frame, chunk_size=chunkSize)
+        isFirst = False
+    else:
+        library.append(symbol, frame)
+    # library.append(symbol, frame, chunk_size=chunkSize)
 end = time.time()
 print("elapsed time to write data: " + str(end - start))

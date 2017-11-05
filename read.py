@@ -44,8 +44,8 @@ store = Arctic(host)
 library = store[libraryName]
 
 start = time.time()
-frames = library.read(symbol)
-data = frames.data
+frames = library.read(symbol,chunk_range=pd.date_range('2016-05-01', '2016-06-01'))
+print(frames.date)
 end = time.time()
 
 print("elapsed time to read all data of symbol '" + symbol + "': " + str(end - start))

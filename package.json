@@ -4,12 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start" : "node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongodb": "file:../node-mongodb-native"
+    "lz4": "^0.5.3",
+    "mongodb": "file:../node-mongodb-native",
+    "object-sizeof": "^1.2.0",
+    "snappy": "^6.0.1"
   }
 }
