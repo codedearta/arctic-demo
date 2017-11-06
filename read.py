@@ -44,7 +44,7 @@ store = Arctic(host)
 library = store[libraryName]
 
 start = time.time()
-frames = library.read(symbol,chunk_range=pd.date_range('2016-05-01', '2016-06-01'))
+frames = library.read(symbol,chunk_range=pd.date_range('2013-01-01', '2013-12-31'))
 print(frames.date)
 end = time.time()
 
